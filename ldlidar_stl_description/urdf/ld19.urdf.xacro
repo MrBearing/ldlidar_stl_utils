@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+        xmlns:xacro="http://ros.org/wiki/xacro"
+        name="ld19">
+    <xacro:include filename="$(find ldlidar_stl_description)/urdf/ld19.xacro" />
+
+    <!-- arguments -->
+    <xacro:arg
+            name="prefix"
+            default="" />
+    <xacro:arg
+            name="sensor_range_visible"
+            default="false" />
+
+    <!-- links -->
+    <link name="$(arg prefix)base_link" />
+
+    <xacro:ld19
+            parent="$(arg prefix)base_link"
+            prefix="$(arg prefix)"
+            sensor_range_visible="$(arg sensor_range_visible)">
+        <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+    </xacro:ld19>
+</robot>
