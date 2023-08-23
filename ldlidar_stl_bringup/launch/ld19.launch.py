@@ -73,7 +73,8 @@ def generate_launch_description():
         parameters=[
             {'product_name': 'LDLiDAR_LD19'},
             {'topic_name': 'scan'},
-            {'frame_id': 'base_laser'},
+            {'frame_id': 'ld19_base_link'},
+            # {'frame_id': 'base_laser'},
             {'port_name': '/dev/ldlidar'},
             {'port_baudrate': 230400},
             {'laser_scan_dir': True},
@@ -109,7 +110,7 @@ def generate_launch_description():
         output='log',
         arguments=[
             '-d', str(get_package_share_path('ldlidar_stl_bringup') /
-                      'rviz' / 'ld19_display.rviz'),
+                      'rviz' / 'ld19.rviz'),
             '--ros-args', '--log-level', 'error'
         ])
 
@@ -117,10 +118,6 @@ def generate_launch_description():
     ld.add_action(arg_sensor_range_visible)
     ld.add_action(rsp_node)
     ld.add_action(rviz_node)
-
-    # Define LaunchDescription variable
-    ld = LaunchDescription()
-
     ld.add_action(ldlidar_node)
 
     return ld

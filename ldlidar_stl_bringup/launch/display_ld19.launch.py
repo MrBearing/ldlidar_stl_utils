@@ -69,7 +69,7 @@ def generate_launch_description():
         output='log',
         arguments=[
             '-d', str(get_package_share_path('ldlidar_stl_bringup') /
-                      'rviz' / 'ld19_display.rviz'),
+                      'rviz' / 'display.rviz'),
             '--ros-args', '--log-level', 'error'
         ])
 
